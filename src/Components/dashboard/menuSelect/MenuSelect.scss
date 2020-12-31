@@ -1,0 +1,63 @@
+.contenedorSelectCamp
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.tituloSelectCamp
+{
+    color: #7E7E7E !important;
+    text-align: center;
+    width: 100%;
+    text-align: center;
+    margin-left: 0px;
+    padding: 9%;
+    font-size: 1.3em;
+    
+}
+.contCustomInputSelectCamp
+{
+    display: flex;
+    width: 80%;
+    height: 8vh;
+    border-radius: 300px;
+    border : 0px;
+    background-color: #DBDBDB;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.customInputSelectCamp
+{
+    display: flex;
+    width: 90%;
+    height: 100%;
+    border-top-right-radius : 300px;
+    border-bottom-right-radius : 300px;
+    border : 0px;
+    background-color: #DBDBDB;
+    font-family: quicksand;
+    text-align: center;
+    padding-right: 12%;
+}
+.contTiulAndInput
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 0.4;
+    width: 100%;
+}
+
+.contCamps
+{
+    display: flex;
+    flex: 0.6;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 7%;
+}

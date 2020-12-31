@@ -1,0 +1,51 @@
+ 
+
+hr {
+    width: 35vh;
+    display: inline-flex;
+    height: 2px;
+    background: #8F2A92;
+    margin-left: 0px;
+}
+
+.buttonNuevo {
+    margin-top: 6%;
+    border: solid 3px #DB1F1F;
+    background-color: nonoe;
+    width: 140px;
+    height: 50px;
+    border-radius: 200px;
+    color: #DB1F1F;
+    font-family : quicksand; 
+    font-size: 20px;
+    font-weight:bold;
+    outline:none;
+    font-size: 12px;
+    width: 12vw;
+    background-color: transparent;
+}
+
+h2, p {
+    text-decoration: none;
+    font-family : quicksand;
+    color: #707070; 
+}
+
+
+.registros {
+    margin-left: 30px;
+}
+.conteneLetrasAndHr
+{
+    display : flex;
+    flex-direction : column;
+    justify-content : flex-start;
+    align-items : center;
+    padding-left: 10%;
+}
+.MuiDrawer-paperAnchorLeft {
+    left: 0;
+    width: 415px !important;
+    background-color: #e2e2e2 !important;
+    right: auto;
+}

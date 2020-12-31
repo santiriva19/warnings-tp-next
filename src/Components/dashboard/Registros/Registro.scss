@@ -1,0 +1,136 @@
+
+
+
+h2, label {
+    color: #535353;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+select {
+    border: 3px solid #f0f0f0;
+    background: #f0f0f0;
+    color: #464646;
+    outline: #f0f0f0;
+}
+
+.fatDashboardbnt {
+    justify-content: end;
+    display: grid;
+    width: 100%;
+}
+
+.dashboardbtn {
+    border: none;
+    width: 210px;
+    height: 60px;
+    border-radius: 20px;
+    color: #464646;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    margin: 10px;
+}
+
+.verFotobtn {
+    border: none;
+    width: 75px;
+    height: 20px;
+    border-radius: 20px;
+    color: #464646;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    outline: none;
+    margin: 10px;
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+.filterbtnsinput {
+    border: none;
+    background: #8F2A92;
+    width: 180px;
+    height: 60px;
+    border-radius: 33px;
+    padding: 0px 10px;
+    font-family: 'Quicksand', sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    min-width: 155px;
+}
+
+.filterbtns select {
+    border: none;
+    background: #8F2A92;
+    width: 160px;
+    height: 60px;
+    border-radius: 33px;
+    padding: 0px 10px;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    min-width: 145px;
+    text-align: center;
+}
+
+.inputCcms {
+    width: 200px;
+    min-width: 145px;
+    height: 59px;
+    border-radius: 60px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    background-color: #CCCCCC;
+    color: #535353;
+    border: none;
+}
+
+
+table.Registros {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #F0F0F0;
+    width: 90%;
+    height: 7vh;
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 1em;
+    font-weight: 600;
+}
+
+table.Registros td{
+    border: 0px solid #707070;
+    padding: 3px 2px;
+}
+
+table.Registros th {
+    border: 0px solid #8F2A92;
+    padding: 3px 2px;
+    font-weight: 600;
+    
+}
+
+table.Registros tbody td {
+    font-size: 10px;
+    color: #000000;
+}
+
+table.Registros tr:nth-child(even) {
+    background: #F0F0F0;
+    border-radius: 1em;
+}
+
+table.Registros thead {
+    background: #F7F7F7;
+    border-bottom: 2px solid #707070;
+}
+
+table.Registros thead th {
+    font-size: 13px;
+    font-weight: normal;
+    color: #464646;
+    text-align: center;
+}
