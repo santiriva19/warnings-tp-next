@@ -6,7 +6,7 @@ import AlertPopUp from '../TypeOfAlerts/TypeOfAlerts';
 import Dash from '../DashboardFullView/DashboardFullView.js';
 // import Logo from '../../../assets/img/tplogomini.png';
 import Cookies from 'universal-cookie'
-
+import LoadingView from '../../Loading/Loading'
 import FetchFunction from '../../Api-Call/Api-call-function';
 /*
     1. apiNombres
@@ -14,17 +14,53 @@ import FetchFunction from '../../Api-Call/Api-call-function';
     3. apiGetUsers
 */
 export default function SwipeableTemporaryDrawer() {
-    let idSS
+    // let idSS
+    let cookies = new Cookies()
+    const [idSS, setIdSS] = useState("") 
+    const [campaanaSS, setCampanaSS] = useState("") 
     const usernameSS = FetchFunction('apiVerifiPermisoUsuario',idSS)
-
-    useEffect(() => {
-        idSS = sessionStorage.getItem('ccms')
+    const [cargoData, setCargoDataLog] = useState(false)
+    useEffect(() => 
+    {
+        setIdSS(sessionStorage.getItem('ccms'))
+        setCampanaSS(sessionStorage.getItem('camapana'))
         if(!usernameSS.loading)
         {
-            accesoACampanas = usernameSS.data.datos[4].split(",")
+            if(cookies.get("user_token") === undefined)
+            {
+                alert("Sin permisos, inicie sesión")
+                sessionStorage.clear();
+                cookies.remove('user_token')
+                window.location.href ="/"
+            }
+            else
+            {            
+                // let TokenEncr = md5(cookies.get('user_token'))
+                // let userEncriptado = sessionStorage.getItem('encriptado')
+                if
+                (
+                    sessionStorage.length === 0 || 
+                    cookies.get('user_token') === '' || 
+                    usernameSS.data.datos[0] === 'nodata' ||
+                    idSS === ''
+                )
+                {
+                    alert("Sin permisos, inicie sesión")
+                    sessionStorage.clear();
+                    cookies.remove('user_token')
+                    window.location.href = "/"
+                }
+                else
+                {
+                    setCargoDataLog (true)
+                    if(!usernameSS.loading)
+                    {
+                        accesoACampanas = usernameSS.data.datos[4].split(",")
+                    }
+                }
+            }
         }
-    },[])
-
+    }, [usernameSS.loading, idSS])
 
     const classes = useStyles();
     const [state, setState] = useState({
@@ -60,7 +96,6 @@ export default function SwipeableTemporaryDrawer() {
         >
            <AlertPopUp/>
 
-          
         </div>
     );
     const cerrarSesion =()=>
@@ -68,7 +103,6 @@ export default function SwipeableTemporaryDrawer() {
         let cookie = new Cookies()
         sessionStorage.clear()
         cookie.remove('bearer')
-        
     }
     var username = FetchFunction('apiVerifiPermisoUsuario',idSS)
     if(idSS === null || username === undefined)
@@ -80,14 +114,14 @@ export default function SwipeableTemporaryDrawer() {
     }
     else
     {
-        return (usernameSS.loading ? '...' :
+        return (usernameSS.loading ? '...': !cargoData ? <LoadingView/> :
             <div>
                 <div style={styles.header}>
                     
                     <div style = {styles.centro}>
                         
                         
-                        {/* <img style = {styles.logo} src='../../../assets/img/tplogomini.png'/>  */}
+                        <img style = {styles.logo} src="https://i.ibb.co/CtDcQ1v/tplogomini.png"/> 
                         <h1 className = "textoGrande" >Dashboard</h1>
 
                     </div>   

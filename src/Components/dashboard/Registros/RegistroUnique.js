@@ -5,7 +5,7 @@ import {
         faHome
 } from '@fortawesome/free-solid-svg-icons';
 import LoadingView from '../../Loading/Loading'
-import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router'
 import Cookies from 'universal-cookie'
 import Slider from '../Carousel/Slider';
 import VerFotosButton from '../Carousel/verFotosButton';
@@ -36,7 +36,8 @@ function RegistroUnique()
     let cookies = new Cookies();
     let idSS = sessionStorage.getItem('ccms')
 
-    const {id} = useParams();
+    const router = useRouter();
+    const {id} = router.query
     const {data, loading, arrayNombresImg} = FetchFunction('apiRegistrosUnique', id)
 
     let RegExp = /[0-9]/ 
@@ -130,13 +131,13 @@ function RegistroUnique()
        
 
     
-        return ( !cargoDataLog ? '...': loading ? <LoadingView/> :
+        return ( !cargoDataLog ? <LoadingView/> :  loading ? <LoadingView/> :
             <div>
                 {renderModal()}
                 <div className='registros'>
                     <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
                             <h2>Registros</h2>
-                            <a  href = {'/dashboard/'+sessionStorage.getItem('encriptado')}
+                            <a  href = '/dashboard/'
                             style={{
                             display: "flex",
                             justifyContent: "center"
@@ -217,7 +218,7 @@ function RegistroUnique()
                                 <td>{index.operacion}</td>
                                 <td>
 
-                                    <ComboBoxTA item = {index.tipo_alerta} /> 
+                                <ComboBoxTA item = {index.tipo_alerta} id = {index.id}/> 
 
                                 </td>
                                 <td>

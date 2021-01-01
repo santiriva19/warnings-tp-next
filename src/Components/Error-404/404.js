@@ -110,7 +110,7 @@ function error404()
         return(
             
             <main className="container">
-                {/* <img className="logo404" src='https:/logini.blogs.es/6f44dd/google-2015-1/450_1000.jpg'/> */}
+                <img className="logo404" src='https://i.ibb.co/CtDcQ1v/tplogomini.png'/>
 
                 <span className="particle">4</span>
                 <span className="particle">4</span>

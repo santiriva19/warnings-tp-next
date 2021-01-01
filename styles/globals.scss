@@ -1,11 +1,12 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 $primary_font_family: 'quicksand';
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Quicksand";
+  font-family: "quicksand";
+  font-weight: 700;
 }
 
 a {
