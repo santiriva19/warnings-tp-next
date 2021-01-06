@@ -47,7 +47,7 @@ export default function Agentestable() {
                 alert("Sin permisos, inicie sesión")
                 sessionStorage.clear();
                 cookies.remove('user_token')
-                window.location.href ="/"
+                window.location.href ="/CAS/index"
             }
             else
             {            
@@ -65,7 +65,7 @@ export default function Agentestable() {
                     alert("Sin permisos, inicie sesión")
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href("/")
+                    window.location.href("/CAS/index")
                 }
                 else
                 {
@@ -80,24 +80,32 @@ export default function Agentestable() {
         return  (
             loading ? <LoadingView/> : !cargoDataLog ? <LoadingView/> :
             <div>
-                <div style = {{marginLeft : '5%'}}>
+                <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
+                        <h2 style = {{marginLeft: '4%'}}>Coordinadores</h2>
+                        <a  href = {'/CAS/dashboard'}
+                            style={{
+                            display: "flex",
+                            justifyContent: "center"
+                        }}>
+                            <button
+                            className="dashboardBtns"
+                            >
+                            <FontAwesomeIcon 
+                                icon = {faHome} 
+                                size="1x"
+                                color="white"
+                            /> 
+                            Volver
+                            </button>
+                        </a>
                         
-                    <h2 
-                        style ={{ 
-                            padding: 20
-                        }}
-                    >
-                        Coordinadores
-                    </h2>
-                    <hr />
-                </div>
-
-                <div
+                    </div>
+                    <div
                     style= {{
                         display: 'flex',
                         justifyContent: 'center'
                     }}
-                >
+                    >
                     <table className={'colab' ? 'greyGridTable' : 'display: none' }>
                         <thead>
                             <tr>
@@ -136,22 +144,7 @@ export default function Agentestable() {
                         </tbody>
                     </table>
                 </div>
-                <a  href = {'/dashboard/'}
-                    style={{
-                    display: "flex",
-                    justifyContent: "center"
-                }}>
-                    <button
-                        className="dashboardBtns"
-                    >
-                        <FontAwesomeIcon 
-                            icon = {faHome} 
-                            size="1x"
-                            color="white"
-                        /> 
-                        Dashboard
-                    </button>
-                </a>
+                
             </div>   
         )
         

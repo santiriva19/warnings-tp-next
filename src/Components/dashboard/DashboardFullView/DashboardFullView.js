@@ -25,6 +25,8 @@ import Button from '@material-ui/core/Button';
 import AlertPopUp from '../TypeOfAlerts/TypeOfAlerts';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import '../../../assets/style.scss'
+import Crono from '../Cronometro/Crono';
 
 const useStyles = makeStyles({
     list: {
@@ -142,7 +144,7 @@ export default function DashboardFullView (props)
                 {
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href ="/"
+                    window.location.href ="/CAS/index"
                 }
                 else
                 {            
@@ -159,7 +161,7 @@ export default function DashboardFullView (props)
                     {
                         sessionStorage.clear();
                         cookies.remove('user_token')
-                        window.location.href = "/"
+                        window.location.href = "/CAS/index"
                     }
                     else
                     {
@@ -276,7 +278,7 @@ export default function DashboardFullView (props)
                                 
                                 <React.Fragment key={'left'}>
                                         <div title="Ver coordinadores" className="btn" >
-                                            <a href = '../coordinadores'>
+                                            <a href = '/CAS/coordinadores'>
 
                                                 <FontAwesomeIcon 
                                                     icon={faUserTie} 
@@ -300,7 +302,7 @@ export default function DashboardFullView (props)
                                 
                                 <React.Fragment key={'left'}>
                                     <div title="Ver agentes" className="btn">
-                                        <a href = '../agentes'>
+                                        <a href = '/CAS/agentes'>
                                             <div>
                                                 <FontAwesomeIcon 
                                                     icon={faUser} 
@@ -330,6 +332,7 @@ export default function DashboardFullView (props)
                                 </label>
                             </div>
                         </Button>
+               
             <p style = {{    
                 textAlign: 'right',
                 marginRight: '4%',
@@ -445,7 +448,7 @@ export default function DashboardFullView (props)
                     <h2>Resultados</h2>
                     <hr />
                 </div>
-                <a href = '/registro/' ><button style={styles.btnToRegistro}>
+                <a href = '/CAS/registro' ><button style={styles.btnToRegistro}>
                     Registros
                 </button>
                 </a>

@@ -42,25 +42,30 @@ import Cookies from 'universal-cookie'
 
   const doAxios = (direccion) => {
     axios.all(direccion).then(axios.spread((...responses) => {
-      for(let i=0; i<direccion.length; i++){
+      for(var i=0; i<direccion.length; i++){
         images.push(responses[i].data)
-        const response = fetch( 'http://10.151.233.152:3555/node/video/api/update/' );
+        if(i === direccion.length-1)
+        {
+          const response = fetch( 'http://10.151.233.152:3555/node/video/api/update/' );
           if(response.status === 204)
-          {
-                console.log('Error 204')
+            {
+              console.log('Error 204')
+            }
+            else
+            {
+                try
+                {
+                  console.log("Se eliminó")
+                } 
+                catch(err)
+                {
+                    console.log(err)
+                }
+                
+            }
           }
-          else
-          {
-              try
-              {
-                console.log("Se eliminó")
-              } 
-              catch(err)
-              {
-                  console.log(err)
-              }
-              
-          }
+        
+          
       }
     }))
     .catch(errors => {
@@ -70,7 +75,6 @@ import Cookies from 'universal-cookie'
       if(cargo){
         setArrayImagesRoute(images)
         setCargo(false)
-        
       }
     })
 

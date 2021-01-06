@@ -13,10 +13,16 @@ import '../src/Components/dashboard/Resultados/Resultados.scss'
 import '../src/Components/dashboard/TypeOfAlerts/TypeOfAlerts.scss'
 import '../src/Components/Error-404/404.scss'
 import '../src/Components/Loading/Loading.scss'
-
+import '../src/Components/dashboard/Cronometro/Crono.scss'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      
+      <Component {...pageProps} />
+
+    </>
+  )
 }
 
 export default MyApp

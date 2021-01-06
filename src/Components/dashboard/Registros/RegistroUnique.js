@@ -68,7 +68,7 @@ function RegistroUnique()
 
     let index = loading ? [] : data[0]
     var dataFromApiPost = null
-    let currentPathAsked = '/registro/'+id
+    let currentPathAsked = '/registro?id='+id
     useEffect(() => 
     {
         if(sessionStorage.length === 0 && cookies.get('user_token') === undefined)
@@ -85,7 +85,7 @@ function RegistroUnique()
                 sessionStorage.setItem("link", currentPathAsked)
                 alert('Será redirigido al login')
 
-                window.location.href ="/"
+                window.location.href ="/CAS/index"
 
             }
             else
@@ -106,7 +106,7 @@ function RegistroUnique()
                     cookies.remove('user_token')
                     sessionStorage.setItem("link", currentPathAsked)
                     alert('Será redirigido al login')
-                    window.location.href("/")
+                    window.location.href = "/CAS/index"
 
                 }
                 else
@@ -137,7 +137,7 @@ function RegistroUnique()
                 <div className='registros'>
                     <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
                             <h2>Registros</h2>
-                            <a  href = '/dashboard/'
+                            <a  href = '/CAS/dashboard'
                             style={{
                             display: "flex",
                             justifyContent: "center"
@@ -236,7 +236,7 @@ function RegistroUnique()
                         
                     </table>
                 </div>
-                <a  href = {'/dashboard/'+sessionStorage.getItem('encriptado')}
+                <a  href = {'/CAS/dashboard'+sessionStorage.getItem('encriptado')}
                 style={{
                     display: "flex",
                     justifyContent: "center"

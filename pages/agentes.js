@@ -1,11 +1,14 @@
 import  Agentes from '../src/Components/dashboard/Menus/agentesMenu'
-import Head from "next/head";
-import Link from "next/link";
+import Crono from '../src/Components/dashboard/Cronometro/Crono'
+
 
 export default function Home() {
   return (
-     
-        <Agentes/>
+    <>
+      <Crono/>
+      <Agentes/>
+    </>
+    
     
   )
 }

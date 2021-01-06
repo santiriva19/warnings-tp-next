@@ -8,20 +8,30 @@ import Dash from '../DashboardFullView/DashboardFullView.js';
 import Cookies from 'universal-cookie'
 import LoadingView from '../../Loading/Loading'
 import FetchFunction from '../../Api-Call/Api-call-function';
+
 /*
     1. apiNombres
     2. apiPaises
     3. apiGetUsers
 */
 export default function SwipeableTemporaryDrawer() {
+
     // let idSS
     let cookies = new Cookies()
     const [idSS, setIdSS] = useState("") 
     const [campaanaSS, setCampanaSS] = useState("") 
     const usernameSS = FetchFunction('apiVerifiPermisoUsuario',idSS)
     const [cargoData, setCargoDataLog] = useState(false)
+    const [estadoConta, setEstadoConta] = useState(0)
+
+    const timeActual = new Date();
+    const timeInicial = new Date();
+    const acumularTime = timeActual - timeInicial;
+    
+
     useEffect(() => 
     {
+
         setIdSS(sessionStorage.getItem('ccms'))
         setCampanaSS(sessionStorage.getItem('camapana'))
         if(!usernameSS.loading)
@@ -31,7 +41,7 @@ export default function SwipeableTemporaryDrawer() {
                 alert("Sin permisos, inicie sesión")
                 sessionStorage.clear();
                 cookies.remove('user_token')
-                window.location.href ="/"
+                window.location.href ="/CAS/index"
             }
             else
             {            
@@ -48,7 +58,7 @@ export default function SwipeableTemporaryDrawer() {
                     alert("Sin permisos, inicie sesión")
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href = "/"
+                    window.location.href = "/CAS/index"
                 }
                 else
                 {
@@ -56,6 +66,7 @@ export default function SwipeableTemporaryDrawer() {
                     if(!usernameSS.loading)
                     {
                         accesoACampanas = usernameSS.data.datos[4].split(",")
+                        setEstadoConta(1)
                     }
                 }
             }
@@ -69,14 +80,8 @@ export default function SwipeableTemporaryDrawer() {
     });
     let accesoACampanas = []
     const [campanaSelected, setCampanaSelected] = useState("")
-
-    // console.log(accesoACampanas)
-
-    // setCampanaSelected(accesoACampanas[0])
+   
     
-
-  
-    // console.log(campanaSelected, "CAMPAÑA")
     const toggleDrawer = (anchor, open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
         return;
@@ -115,12 +120,11 @@ export default function SwipeableTemporaryDrawer() {
     else
     {
         return (usernameSS.loading ? '...': !cargoData ? <LoadingView/> :
-            <div>
+        
+            <div style = {{marginTop : "-1%"}}>
                 <div style={styles.header}>
                     
                     <div style = {styles.centro}>
-                        
-                        
                         <img style = {styles.logo} src="https://i.ibb.co/CtDcQ1v/tplogomini.png"/> 
                         <h1 className = "textoGrande" >Dashboard</h1>
 
@@ -130,7 +134,7 @@ export default function SwipeableTemporaryDrawer() {
                             justifyContent: 'center',
                             width: '22%',
                             backgroundColor: 'white'}}>
-                        <a href="/" onClick={() => cerrarSesion()}>
+                        <a href="/CAS/index" onClick={() => cerrarSesion()}>
                             <button className="buttonNuevo"
                                 style = {{    width: '10vw'}}
                                 type = "button"
@@ -148,9 +152,8 @@ export default function SwipeableTemporaryDrawer() {
                 
             <Dash campanaSelected = {campanaSelected} setCampanaSelected = {setCampanaSelected} />
             
-
-
             </div>
+
         );
         }
     }
@@ -172,7 +175,7 @@ const styles = {
         justifyContent: 'center',
         alignItems : 'center', 
         marginTop : '0.5%',
-        marginLeft: '27%'
+        marginLeft: '28.3%'
 
     },
     logo:{

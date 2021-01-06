@@ -84,11 +84,11 @@ export default function ModalLogin  ()
                         cookies.set('user_token', token)
                         if(sessionStorage.getItem("link") === undefined || sessionStorage.length === 0 || sessionStorage.getItem("link") === null)
                         {
-                            window.location.href = "/dashboard/"
+                            window.location.href = "/CAS/dashboard"
                         }
                         else
                         {
-                            window.location.href = sessionStorage.getItem("link")
+                            window.location.href = "/CAS/index"+sessionStorage.getItem("link")
                         }
                         
                     }

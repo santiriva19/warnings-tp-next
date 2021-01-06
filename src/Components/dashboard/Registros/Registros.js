@@ -38,7 +38,7 @@ function  Registro () {
                 alert("Sin permisos, inicie sesión")
                 sessionStorage.clear();
                 cookies.remove('user_token')
-                window.location.href ="/"
+                window.location.href ="/CAS/index"
             }
             else
             {            
@@ -55,7 +55,7 @@ function  Registro () {
                     alert("Sin permisos, inicie sesión")
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href = "/"
+                    window.location.href = "/CAS/index"
                 }
                 else
                 {
@@ -156,7 +156,7 @@ function  Registro () {
                 <div className='registros'>
                     <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
                         <h2>Registros</h2>
-                        <a  href = {'/dashboard/'}
+                        <a  href = {'/CAS/dashboard'}
                             style={{
                             display: "flex",
                             justifyContent: "center"
@@ -402,7 +402,7 @@ function  Registro () {
                         </tbody>
                     </table>
                 </div>
-                <a  href = {'/dashboard/'}
+                <a  href = {'/CAS/dashboard'}
                     style={{
                     display: "flex",
                     justifyContent: "center"

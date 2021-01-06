@@ -2,6 +2,7 @@
 import { useRouter } from 'next/router'
 import  Registro from '../src/Components/dashboard/Registros/Registros'
 import  RegistroUni from '../src/Components/dashboard/Registros/RegistroUnique'
+import Crono from '../src/Components/dashboard/Cronometro/Crono'
 
 export default function Home() 
 {
@@ -11,14 +12,21 @@ export default function Home()
   if(id === undefined)
   {
     return(
-    
-      <Registro/>
+      <>
+        <Crono/>
+        <Registro/>
+      </>
+      
      )
   }
   else
   {
-    return(     
-    <RegistroUni/>
+    return(  
+      <>
+        <Crono/>   
+        <RegistroUni/>
+      </>
+      
     )
   }
 
