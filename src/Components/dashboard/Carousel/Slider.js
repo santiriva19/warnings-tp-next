@@ -49,13 +49,13 @@ import Cookies from 'universal-cookie'
           const response = fetch( 'http://10.151.233.152:3555/node/video/api/update/' );
           if(response.status === 204)
             {
-              console.log('Error 204')
+              // console.log('Error 204')
             }
             else
             {
                 try
                 {
-                  console.log("Se eliminó")
+                  // console.log("Se eliminó")
                 } 
                 catch(err)
                 {
@@ -95,12 +95,12 @@ import Cookies from 'universal-cookie'
             <Carousel
               style={{
                 height: '70%',
-                width: '80%',
+                width: '43%',
                 borderRadius : 15
               }}
             >
               {arrayImagesRoute.map(img=>{
-                return <img src={img}/>
+                return <img style = {{width: '100%'}} src={img}/>
               })}
             </Carousel>
 

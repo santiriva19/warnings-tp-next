@@ -5,14 +5,10 @@ export default function InfoCampa(props)
 {
     return(
         <div className="panelInfo" >
-            <div className = "contCirculoFoto">
-                <div className = "circuloImgInfo">
-                    <div style = {styles.image}></div>
-                </div>
-            </div>
+            
 
             <div className = "contTexto">
-                <p className = "textos" style ={{marginBottom : '0rem'}} >
+                <p className = "textos" style ={{marginBottom : '0rem', marginLeft : '5%'}} >
                     Esta es la campaña de <strong style = {{color : '#8F2A92'}} >{props.nombre}</strong>, aquí puede tener
                     toda la información de alertas de primera mano
                 </p>

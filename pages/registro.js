@@ -8,6 +8,7 @@ export default function Home()
 {
   const router = useRouter()
   const {id} = router.query
+  console.log(id)
 
   if(id === undefined)
   {

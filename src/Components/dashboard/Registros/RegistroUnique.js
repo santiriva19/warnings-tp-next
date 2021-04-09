@@ -11,8 +11,7 @@ import Slider from '../Carousel/Slider';
 import VerFotosButton from '../Carousel/verFotosButton';
 import ComboBoxTA from './comboBoxTA'
 import md5 from 'md5'
-
-
+import moment from 'moment'
 
 /*
     1. apiNombres
@@ -39,6 +38,7 @@ function RegistroUnique()
     const router = useRouter();
     const {id} = router.query
     const {data, loading, arrayNombresImg} = FetchFunction('apiRegistrosUnique', id)
+    console.log(data)
 
     let RegExp = /[0-9]/ 
 
@@ -68,7 +68,7 @@ function RegistroUnique()
 
     let index = loading ? [] : data[0]
     var dataFromApiPost = null
-    let currentPathAsked = '/registro?id='+id
+    let currentPathAsked = 'registro?id='+id
     useEffect(() => 
     {
         if(sessionStorage.length === 0 && cookies.get('user_token') === undefined)
@@ -85,7 +85,7 @@ function RegistroUnique()
                 sessionStorage.setItem("link", currentPathAsked)
                 alert('Será redirigido al login')
 
-                window.location.href ="/CAS/index"
+                window.location.href ="/CWS/index"
 
             }
             else
@@ -106,7 +106,7 @@ function RegistroUnique()
                     cookies.remove('user_token')
                     sessionStorage.setItem("link", currentPathAsked)
                     alert('Será redirigido al login')
-                    window.location.href = "/CAS/index"
+                    window.location.href = "/CWS/index"
 
                 }
                 else
@@ -132,12 +132,42 @@ function RegistroUnique()
 
     
         return ( !cargoDataLog ? <LoadingView/> :  loading ? <LoadingView/> :
+            data[0].id === -100 ?
+
+            <div className='registros'>
+                    <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
+                        <h2>Registros</h2>
+                        <a  href = {'/CWS/dashboard'}
+                            style={{
+                            display: "flex",
+                            justifyContent: "center"
+                        }}>
+                            <button
+                            className="dashboardBtns"
+                            >
+                            <FontAwesomeIcon 
+                                icon = {faHome} 
+                                size="1x"
+                                color="white"
+                            /> 
+                            Volver
+                            </button>
+                        </a>
+                        
+                    </div>
+                    <hr />
+
+                    <div style = {{fontFamily : 'quicksand',  fontWeight: '800'}}>
+                        No se encontró el registro
+                    </div>
+                </div>
+                :
             <div>
                 {renderModal()}
                 <div className='registros'>
                     <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
                             <h2>Registros</h2>
-                            <a  href = '/CAS/dashboard'
+                            <a  href = '/CWS/dashboard'
                             style={{
                             display: "flex",
                             justifyContent: "center"
@@ -212,7 +242,7 @@ function RegistroUnique()
                                 <td>{index.id}</td>
                                 <td>{index.ccms}</td>
                                 <td>{index.usuario_red}</td>
-                                <td>{index.fecha}</td>
+                                <td>{moment(index.fecha).format("YYYY-MM-DD")}</td>
                                 <td>{index.hora}</td>
                                 <td>{index.objeto}</td>
                                 <td>{index.operacion}</td>
@@ -236,7 +266,7 @@ function RegistroUnique()
                         
                     </table>
                 </div>
-                <a  href = {'/CAS/dashboard'+sessionStorage.getItem('encriptado')}
+                <a  href = {'/CWS/dashboard'+sessionStorage.getItem('encriptado')}
                 style={{
                     display: "flex",
                     justifyContent: "center"

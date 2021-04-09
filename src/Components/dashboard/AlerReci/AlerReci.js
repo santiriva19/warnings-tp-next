@@ -27,6 +27,16 @@ export default function NumEmpleado(props)
         
         :
 
+        data[0].id === -100 ? 
+        <div className="panelNumAlerReci">
+            <FontAwesomeIcon icon={faExclamationTriangle} size="3x" color="#8F2A92" />
+            <div > 
+                <p className = "tituloAlerReci">Alertas totales</p>
+            </div>
+            <p className = "valorAlerReci">{0}</p>
+        </div>
+
+:
         <div className="panelNumAlerReci">
             <FontAwesomeIcon icon={faExclamationTriangle} size="3x" color="#8F2A92" />
             <div > 

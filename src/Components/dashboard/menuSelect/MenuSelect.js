@@ -41,7 +41,7 @@ export default function SwipeableTemporaryDrawer() {
                 alert("Sin permisos, inicie sesión")
                 sessionStorage.clear();
                 cookies.remove('user_token')
-                window.location.href ="/CAS/index"
+                window.location.href ="/CWS/index"
             }
             else
             {            
@@ -58,7 +58,7 @@ export default function SwipeableTemporaryDrawer() {
                     alert("Sin permisos, inicie sesión")
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href = "/CAS/index"
+                    window.location.href = "/CWS/index"
                 }
                 else
                 {
@@ -134,7 +134,7 @@ export default function SwipeableTemporaryDrawer() {
                             justifyContent: 'center',
                             width: '22%',
                             backgroundColor: 'white'}}>
-                        <a href="/CAS/index" onClick={() => cerrarSesion()}>
+                        <a href="/CWS/index" onClick={() => cerrarSesion()}>
                             <button className="buttonNuevo"
                                 style = {{    width: '10vw'}}
                                 type = "button"

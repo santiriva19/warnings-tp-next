@@ -113,6 +113,8 @@ export default function DashboardFullView (props)
     const [cargoInfoDash, setCargoInfoDash] = useState(true)    
     const {data, loading, arrayNombresImg} = FetchFunction('apiRegistros',props.campanaSelected);
 
+    console.log(data, "DATA")
+
     idSS = sessionStorage.getItem('ccms')
 
     const usernameSS = FetchFunction('apiVerifiPermisoUsuario',idSS)
@@ -136,7 +138,6 @@ export default function DashboardFullView (props)
         if(!loading)
         {
             sessionStorage.setItem('camapana', props.campanaSelected)
-            setDatosArrayGrafiPolar([contadorBolsoVarGP, contadorBotellaVarGP, contadorLapiceroVarGP,contadorCompuVarGP, contadorCeluVarGP, contadorBooksVarGP, contadorUSBVar])
             
             if(!usernameSS.loading)
             {
@@ -144,7 +145,7 @@ export default function DashboardFullView (props)
                 {
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href ="/CAS/index"
+                    window.location.href ="/CWS/index"
                 }
                 else
                 {            
@@ -161,7 +162,7 @@ export default function DashboardFullView (props)
                     {
                         sessionStorage.clear();
                         cookies.remove('user_token')
-                        window.location.href = "/CAS/index"
+                        window.location.href = "/CWS/index"
                     }
                     else
                     {
@@ -278,7 +279,7 @@ export default function DashboardFullView (props)
                                 
                                 <React.Fragment key={'left'}>
                                         <div title="Ver coordinadores" className="btn" >
-                                            <a href = '/CAS/coordinadores'>
+                                            <a href = '/CWS/coordinadores'>
 
                                                 <FontAwesomeIcon 
                                                     icon={faUserTie} 
@@ -302,7 +303,7 @@ export default function DashboardFullView (props)
                                 
                                 <React.Fragment key={'left'}>
                                     <div title="Ver agentes" className="btn">
-                                        <a href = '/CAS/agentes'>
+                                        <a href = '/CWS/agentes'>
                                             <div>
                                                 <FontAwesomeIcon 
                                                     icon={faUser} 
@@ -448,7 +449,7 @@ export default function DashboardFullView (props)
                     <h2>Resultados</h2>
                     <hr />
                 </div>
-                <a href = '/CAS/registro' ><button style={styles.btnToRegistro}>
+                <a href = '/CWS/registro' ><button style={styles.btnToRegistro}>
                     Registros
                 </button>
                 </a>

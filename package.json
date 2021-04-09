@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev ",
-    "build": "next build && next export -o CAS/",
+    "build": "next build && next export -o CWS/",
     "start": "next start"
   },
   "dependencies": {

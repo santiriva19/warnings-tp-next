@@ -49,7 +49,7 @@ export default function Agentestable() {
                 alert("Sin permisos, inicie sesión")
                 sessionStorage.clear();
                 cookies.remove('user_token')
-                window.location.href ="/CAS/index"
+                window.location.href ="/CWS/index"
             }
             else
             {            
@@ -67,7 +67,7 @@ export default function Agentestable() {
                     alert("Sin permisos, inicie sesión")
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href("/CAS/index")
+                    window.location.href("/CWS/index")
                 }
                 else
                 {
@@ -84,7 +84,7 @@ export default function Agentestable() {
             <div>
                <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
                         <h2 style = {{marginLeft: '4%'}}>Agentes</h2>
-                        <a  href = {'/CAS/dashboard'}
+                        <a  href = {'/CWS/dashboard'}
                             style={{
                             display: "flex",
                             justifyContent: "center"
@@ -148,22 +148,7 @@ export default function Agentestable() {
                         </tbody>
                     </table>
                 </div>
-                <a  href = {'/CAS/dashboard'}
-                    style={{
-                    display: "flex",
-                    justifyContent: "center"
-                }}>
-                    <button
-                        className="dashboardBtns"
-                    >
-                        <FontAwesomeIcon 
-                            icon = {faHome} 
-                            size="1x"
-                            color="white"
-                        /> 
-                        Dashboard
-                    </button>
-                </a>
+                
             </div>   
         )
         

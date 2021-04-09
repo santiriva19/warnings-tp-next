@@ -10,9 +10,7 @@ import Slider from '../Carousel/Slider';
 import VerFotosButton from '../Carousel/verFotosButton';
 import ComboBoxTA from './comboBoxTA';
 import md5 from 'md5';
-
-
-
+import moment from 'moment'
 
 /*
     1. apiNombres
@@ -38,7 +36,7 @@ function  Registro () {
                 alert("Sin permisos, inicie sesión")
                 sessionStorage.clear();
                 cookies.remove('user_token')
-                window.location.href ="/CAS/index"
+                window.location.href ="/CWS/index"
             }
             else
             {            
@@ -55,7 +53,7 @@ function  Registro () {
                     alert("Sin permisos, inicie sesión")
                     sessionStorage.clear();
                     cookies.remove('user_token')
-                    window.location.href = "/CAS/index"
+                    window.location.href = "/CWS/index"
                 }
                 else
                 {
@@ -149,6 +147,39 @@ function  Registro () {
 
   
         return ( loading ? <LoadingView/> : !cargoDataLog ? <LoadingView/> :
+            data[0].id === -100 ?
+
+            <div className='registros'>
+                    <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
+                        <h2>Registros</h2>
+                        <a  href = {'/CWS/dashboard'}
+                            style={{
+                            display: "flex",
+                            justifyContent: "center"
+                        }}>
+                            <button
+                            className="dashboardBtns"
+                            >
+                            <FontAwesomeIcon 
+                                icon = {faHome} 
+                                size="1x"
+                                color="white"
+                            /> 
+                            Volver
+                            </button>
+                        </a>
+                        
+                    </div>
+                    <hr />
+
+                    <div style = {{fontFamily : 'quicksand',  fontWeight: '800'}}>
+                        No hay datos en la campaña {sessionStorage.getItem("camapana")}
+                    </div>
+                </div>
+            
+
+            :
+
             <div>
                 
                 {renderModal()}
@@ -156,7 +187,7 @@ function  Registro () {
                 <div className='registros'>
                     <div style = {{display : 'flex', flexDirection : 'row', justifyContent : 'space-between', marginTop : '1%', paddingRight : '6%'}} >
                         <h2>Registros</h2>
-                        <a  href = {'/CAS/dashboard'}
+                        <a  href = {'/CWS/dashboard'}
                             style={{
                             display: "flex",
                             justifyContent: "center"
@@ -310,7 +341,7 @@ function  Registro () {
                                             <td>{index.id}</td>
                                             <td>{index.ccms}</td>
                                             <td>{index.usuario_red}</td>
-                                            <td>{index.fecha}</td>
+                                            <td>{moment(index.fecha).format("YYYY-MM-DD")}</td>
                                             <td>{index.hora}</td>
                                             <td>{index.objeto}</td>
                                             <td>{index.operacion}</td>
@@ -402,7 +433,7 @@ function  Registro () {
                         </tbody>
                     </table>
                 </div>
-                <a  href = {'/CAS/dashboard'}
+                <a  href = {'/CWS/dashboard'}
                     style={{
                     display: "flex",
                     justifyContent: "center"

@@ -8,11 +8,11 @@ export default function InfoCampa(props) {
     return(
         <a onClick = {() => props.setCampanaSelected(props.nombre)} >
             <div className="panelInfoCamp" >
-                <div className = "contCirculoFotoCamp">
+                {/* <div className = "contCirculoFotoCamp">
                     <div className = "circuloImgInfoCamp">
                         <div style = {styles.image}></div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className = "contTextoCamp">
                     <p className = "textos" style ={{marginBottom : '0rem',     marginLeft: 0}} >

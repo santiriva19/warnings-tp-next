@@ -20,6 +20,12 @@ function FetchFunction( descripcion, id = null )
         apiRegistrosUnique = 'http://10.151.233.152:3555/node/video/api/get-aler-id/';
         apiVerifiPermisoUsuario = 'http://10.151.233.152:3555/node/video/api/get-rev/';
         apiEliminaFotos = 'http://10.151.233.152:3555/node/video/api/update/';
+        // apiGetUsers = 'http://localhost:4001/node/video/api/get-users/'; 
+        // apiGetCoordina = 'http://localhost:4001/node/video/api/get-rev-op/'; 
+        // apiRegistrosOpercaicones = 'http://localhost:4001/node/video/api/get-aler/';
+        // apiRegistrosUnique = 'http://localhost:4001/node/video/api/get-aler-id/';
+        // apiVerifiPermisoUsuario = 'http://localhost:4001/node/video/api/get-rev/';
+        // apiEliminaFotos = 'http://localhost:4001/node/video/api/update/';
     }
     const [ data, setData ] = useState(null);
     const [ arrayNombresImg, setImg ] = useState([]);
@@ -69,7 +75,21 @@ function FetchFunction( descripcion, id = null )
             const response = await fetch( url , requestOptions );
             if(response.status === 204)
             {
-                 console.log('Error 204')
+                const dataApi = [{
+                    id : -100,
+                    ccms: 0,
+                    fecha: "",
+                    hora: "",
+                    nombre_imagenes: "",
+                    objeto: "",
+                    operacion: "",
+                    tipo_alerta: "",
+                    usuario_red: "",
+                }];
+                setData( dataApi );
+                setLoading(false)
+                
+                
             }
             else
             {

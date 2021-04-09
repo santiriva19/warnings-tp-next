@@ -58,7 +58,7 @@ export default function ModalLogin  ()
                 dataFromApi = loading ? '' : data.datos;
                 if(data.error === 'Invalid token')
                 {
-                    console.log("Error en la conexión")
+                    // console.log("Error en la conexión")
                 }
                 else
                 {
@@ -84,11 +84,11 @@ export default function ModalLogin  ()
                         cookies.set('user_token', token)
                         if(sessionStorage.getItem("link") === undefined || sessionStorage.length === 0 || sessionStorage.getItem("link") === null)
                         {
-                            window.location.href = "/CAS/dashboard"
+                            window.location.href = "/CWS/dashboard"
                         }
                         else
                         {
-                            window.location.href = "/CAS/index"+sessionStorage.getItem("link")
+                            window.location.href = "/CWS/"+sessionStorage.getItem("link")
                         }
                         
                     }

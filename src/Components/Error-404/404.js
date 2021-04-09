@@ -11,10 +11,10 @@ function error404()
     {
         if(cookies.get("user_token") === undefined || cookies.get("user_token") === null )
         {
-            window.location.href = "/CAS/"
+            window.location.href = "/CWS/"
         }
         else{
-            window.location.href = "/CAS/dashboard"
+            window.location.href = "/CWS/dashboard"
         }
     }
 
