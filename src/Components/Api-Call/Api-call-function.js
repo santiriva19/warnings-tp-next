@@ -14,12 +14,12 @@ function FetchFunction( descripcion, id = null )
 
     if(descripcion !== "")
     {
-        apiGetUsers = 'http://10.151.233.152:3555/node/video/api/get-users/'; 
-        apiGetCoordina = 'http://10.151.233.152:3555/node/video/api/get-rev-op/'; 
-        apiRegistrosOpercaicones = 'http://10.151.233.152:3555/node/video/api/get-aler/';
-        apiRegistrosUnique = 'http://10.151.233.152:3555/node/video/api/get-aler-id/';
-        apiVerifiPermisoUsuario = 'http://10.151.233.152:3555/node/video/api/get-rev/';
-        apiEliminaFotos = 'http://10.151.233.152:3555/node/video/api/update/';
+        apiGetUsers = 'https://cws.teleperformance.co:4002/node/video/api/get-users/'; 
+        apiGetCoordina = 'https://cws.teleperformance.co:4002/node/video/api/get-rev-op/'; 
+        apiRegistrosOpercaicones = 'https://cws.teleperformance.co:4002/node/video/api/get-aler/'; 
+        apiRegistrosUnique = 'https://cws.teleperformance.co:4002/node/video/api/get-aler-id/'; 
+        apiVerifiPermisoUsuario = 'https://cws.teleperformance.co:4002/node/video/api/get-rev/'; 
+        apiEliminaFotos = 'https://cws.teleperformance.co:4002/node/video/api/update/';
         // apiGetUsers = 'http://localhost:4001/node/video/api/get-users/'; 
         // apiGetCoordina = 'http://localhost:4001/node/video/api/get-rev-op/'; 
         // apiRegistrosOpercaicones = 'http://localhost:4001/node/video/api/get-aler/';

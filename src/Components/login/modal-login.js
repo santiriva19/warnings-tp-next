@@ -45,14 +45,14 @@ export default function ModalLogin  ()
         const credentials = {
             username: ccms,
             password:  pass, 
-            typeAut : 3
+            typeAut : 0
         }
         axios.post('https://ccmsautomated.teleperformance.co/login',  credentials )
         .then(res => {
             console.log(res.data, "data")
             numeroDeError = res.data.error.codError+"";
 
-            if(numeroDeError==="0")
+            if(numeroDeError==="0000")
             {   
                 let token = "";
                 var dataFromApi = null;
